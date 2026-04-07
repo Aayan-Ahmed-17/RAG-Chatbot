@@ -23,6 +23,6 @@ def get_embeddings():
     if not settings.GOOGLE_API_KEY:
         raise ValueError("GOOGLE_API_KEY must be set directly or inside .env")
     return GoogleGenerativeAIEmbeddings(
-        model="models/embedding-001",
+        model="models/gemini-embedding-001",
         google_api_key=settings.GOOGLE_API_KEY
     )
