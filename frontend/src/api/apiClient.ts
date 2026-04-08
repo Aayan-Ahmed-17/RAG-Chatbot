@@ -1,6 +1,6 @@
 const API_BASE_URL = "http://localhost:8000/api";
 
-export const uploadPdf = async (file: File) => {
+export const uploadPdf = async (file: File): Promise<{ filename: string }> => {
   const formData = new FormData();
   formData.append("file", file);
 
@@ -12,6 +12,23 @@ export const uploadPdf = async (file: File) => {
   if (!response.ok) {
     const errorData = await response.json();
     throw new Error(errorData.detail || "Failed to upload file");
+  }
+
+  return response.json();
+};
+
+export const removePdf = async (filename: string) => {
+  const response = await fetch(`${API_BASE_URL}/remove`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ filename }),
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(errorData.detail || "Failed to remove file");
   }
 
   return response.json();

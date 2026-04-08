@@ -125,6 +125,62 @@ body {
   margin-top: 0.5rem;
 }
 
+/* PDF List Items */
+.pdf-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  background-color: rgba(30, 41, 59, 0.5);
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.pdf-item:hover {
+  background-color: var(--surface-hover);
+  transform: translateX(4px);
+}
+
+.pdf-name {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 85%;
+}
+
+.remove-btn {
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 50%;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  opacity: 0; /* Hidden by default */
+}
+
+.pdf-item:hover .remove-btn {
+  opacity: 1; /* Show on hover */
+}
+
+.remove-btn:hover {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: var(--danger-color);
+}
+
+.remove-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
